@@ -44,12 +44,12 @@ dfa2 = Automata(
         ('q1', 'a'): 'q0',
         ('q1', 'b'): 'q3',
         ('q2', 'a'): 'q3',
-        ('q2', 'b'): 'q0',
+        ('q2', 'b'): 'q0', 
         ('q3', 'a'): 'q2',
         ('q3', 'b'): 'q1'
     },
     start_state='q0',
-    accept_states={'q3'}
+    accept_states={'q3','q0'}  # Accepts if ends in q0 or q3
 )
 
 # Number 1. 3 accepted and rejected
@@ -60,7 +60,7 @@ for s in examples1:
 
 # Number 2. 3 Accepted and rejected
 print("\n=== Automaton 2 (a/b) ===")
-examples2 = ["ab", "abaa", "abaabb", "aa","abb", "aba"]  # first 3 = accepted, last 3 = rejected
+examples2 = ["ab", "abaa", "abaabb", "aaa","abb", "aba"]  # first 3 = accepted, last 3 = rejected
 for s in examples2:
     print(f"{s!r}: {'ACCEPTED ✅' if dfa2.accepts(s) else 'REJECTED ❌'}")
 
